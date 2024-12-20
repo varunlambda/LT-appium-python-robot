@@ -6,8 +6,8 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     env:
-      LT_USERNAME: "varunkumarb"
-      LT_ACCESS_KEY: "GhGShOYHz1jODWE9qDvkJK4nPDR3n2lc0gNp9VknalhwtUineG"
+      LT_USERNAME: "username"
+      LT_ACCESS_KEY: "accesskey"
     strategy:
       max-parallel: 5
 
@@ -20,7 +20,7 @@ jobs:
 
     - name: Start LambdaTest Tunnel
       run: |
-        docker run -d --name lt lambdatest/tunnel --user varunkumarb --key GhGShOYHz1jODWE9qDvkJK4nPDR3n2lc0gNp9VknalhwtUineG
+        docker run -d --name lt lambdatest/tunnel --user <username> --key <accesskey>
 
         
     - uses: actions/checkout@v4
