@@ -16,11 +16,12 @@ jobs:
       run: docker pull lambdatest/tunnel:latest
 
     - name: Verify LambdaTest Tunnel Version
-      run: docker run -it lambdatest/tunnel --version
+      run: docker run --rm lambdatest/tunnel --version
 
     - name: Start LambdaTest Tunnel
       run: |
         docker run -d --name lt lambdatest/tunnel --user varunkumarb --key GhGShOYHz1jODWE9qDvkJK4nPDR3n2lc0gNp9VknalhwtUineG
+
         
     - uses: actions/checkout@v4
     - name: Set up Python 3.10
