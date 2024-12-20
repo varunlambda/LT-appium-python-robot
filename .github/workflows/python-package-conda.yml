@@ -12,6 +12,16 @@ jobs:
       max-parallel: 5
 
     steps:
+    - name: Pull LambdaTest Tunnel Docker Image
+      run: docker pull lambdatest/tunnel:latest
+
+    - name: Verify LambdaTest Tunnel Version
+      run: docker run -it lambdatest/tunnel --version
+
+    - name: Start LambdaTest Tunnel
+      run: |
+        docker run -d --name lt lambdatest/tunnel --user varunkumarb --key GhGShOYHz1jODWE9qDvkJK4nPDR3n2lc0gNp9VknalhwtUineG
+        
     - uses: actions/checkout@v4
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
